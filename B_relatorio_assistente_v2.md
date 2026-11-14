@@ -45,6 +45,37 @@
 
 **Contagem:** F1–F31: 25 corrigidas (a), 3 defendidas (b: F12, F25, F26), 3 pendentes (c: F14, F20, F21). A seção 3 e o grupo FP11–FP25 foram tratados como (a).
 
+### Detalhe do tratamento: FP11–FP25 (auditoria v1, seção 4)
+
+Cada fail point proposto pela auditoria foi incorporado na seção (c) com classe de prova, domínio (SD = serviço digital do MTE; TEL = 0800 da Caixa; PAG = retaguarda de pagamento) e forma de teste.
+
+| FP da auditoria | Onde ficou na v2 | Classe de prova | Como testar ou fonte |
+|---|---|---|---|
+| FP11 URA indisponível | c.3, E3–E4, TEL | Hipótese | Ligações em dias e horários variados; LAI sobre disponibilidade |
+| FP12 Falha CPF/NIS | c.3, E4, TEL | Hipótese | Ligação de teste; TR 5.3.5.3 prevê CPF como identificador único |
+| FP13 Informação desatualizada | Fundido no FP13/14 (c.1), E2/E4 | Comprovado no SD; hipótese no TEL | TCU 1621/2026 recomendou alinhar o status exibido ao pagamento real |
+| FP14 Status divergente | Fundido no FP13/14 (c.1), com F17 | Comprovado no SD; hipótese no TEL | Idem |
+| FP15 Histórico incompleto | c.3, E6, TEL | Hipótese | LAI (perfis de acesso); ligação de teste |
+| FP16 Sem ocorrência rastreável | c.3, E6, TEL | Hipótese | Pedir protocolo na ligação; LAI |
+| FP17 Transferência sem histórico | c.3, E6–E7, TEL | Hipótese | Ligação de teste; LAI à Caixa e ao MTE |
+| FP18 Canal sem competência | c.3, E7, TEL/SD | Hipótese apoiada na matriz b.2 | Ligações com cenários de reemissão, contestação e recurso |
+| FP19 Sem retorno após regularização | c.1, E8, SD | Indício (recomendação do TCU) | TCU 1621/2026 |
+| FP20 Recurso com barreiras | c.1, E8, SD | Comprovado no SD | TCU 1621/2026: 500 caracteres, 1 MB, protocolo antes da juntada |
+| FP21 Pago sem reconhecimento | c.2, E4/E9, PAG | Mecanismo comprovado | Art. 20, § 5º; TR 5.13 e 5.3.14 |
+| FP22 Reemissão duplicada | c.3, E8, PAG | Hipótese | LAI ao MTE (procedimento não localizado) |
+| FP23 Abandono não monitorado | Fundido no FP4 (c.3), E5, TEL | Hipótese | LAI à Caixa: espera média e taxa de abandono |
+| FP24 Protocolo sem vínculo com o MTE | c.3, E6–E7, TEL/SD | Hipótese | Ligação de teste; LAI |
+| FP25 Sem comunicação proativa | c.1, E2/E9, SD | Indício (recomendação do TCU) | TCU 1621/2026 |
+
+### Detalhe do tratamento: seção 3 da auditoria v1 (evidências)
+
+A seção (e) traz um plano de coleta com uma linha por evidência, dizendo se ela é **pública e obtida**, **pública e não obtida**, **exige LAI** ou **exige ligação de teste**:
+
+- **Camada telefônica:** gravação da URA, mensagens, tempo até o humano, protocolo e acessibilidade exigem ligação de teste (roteiro de seis ligações em dias e horários diferentes). Espera, abandono e volume de chamadas exigem LAI à Caixa. Roteiros, base de conhecimento e perfis do atendente exigem LAI.
+- **Camada tecnológica:** arquitetura da URA, integrações, logs e plano de contingência só se obtêm em auditoria formal. Isso foi registrado como fora do alcance da pesquisa pública.
+- **Camada financeira:** lotes, comprovantes de transmissão, rejeições, conciliação, restituições e reemissões exigem LAI ao MTE (dados agregados).
+- **Camada de governança:** o Contrato 07/2026 e o TR foram obtidos. O IMR (Anexo V), os relatórios de fiscalização e o plano de ação do MTE ao TCU exigem LAI. O inteiro teor dos acórdãos é público, mas não foi obtido nesta rodada.
+
 ---
 
 ## (a) Sumário

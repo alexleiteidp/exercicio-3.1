@@ -29,9 +29,24 @@
 | ═══ *Linha de Interação* ═══ | | | | | | | | | |
 | **3. Frontstage** (visível) | — (nenhum contato com o serviço) | Telas do app: status da parcela e mensagens | Voz da URA: saudação e menu | Voz da URA lê o status [não confirmado em 2026] ⚠ **FP-A** | Mensagem gravada de espera; transbordo para atendente | Atendente terceirizado da Caixa | Atendente indica o canal do MTE ⚠ **FP-C** | gov.br, CTPS Digital, Central 158, atendimento presencial na SRTE ou no Sine | Crédito no CAIXA Tem; notificação da decisão no app |
 | ═══ *Linha de Visibilidade* ═══ | | | | | | | | | |
-| **4. Backstage** (invisível) | — | Leitura do status gravado pelo motor de habilitação | URA (sistema automatizado) recebe a chamada | URA consulta a base de pagamento da Caixa | ACD/roteamento da fila distribui a chamada | Atendente consulta o sistema de pagamento da Caixa (só pagamento, não a concessão) | Registro do protocolo, sem vínculo com a demanda no MTE ⚠ **FP-C** | Registro do recurso no sistema do MTE | Caixa registra o crédito |
+| **4. Backstage** (invisível) | — | Leitura do status gravado pelo motor de habilitação | URA (sistema automatizado) recebe a chamada | URA consulta a base de pagamento da Caixa | ACD/roteamento da fila distribui a chamada | Atendente consulta o sistema de pagamento da Caixa (só pagamento, não a concessão) | Registro do protocolo, sem vínculo com a demanda no MTE ⚠ **FP-C** | Registro do recurso no sistema do MTE | Sistema de pagamento da Caixa registra o crédito |
 | ═══ *Linha de Interação Interna* ═══ | | | | | | | | | |
-| **5. Processos de Suporte** | Lote semanal de pagamento MTE → Caixa (Res. CODEFAT 957/2022, art. 65) | Motor de habilitação MTE/Dataprev cruza eSocial, CNIS e FGTS ⚠ **FP-F** | Contrato de teleatendimento e fiscal do contrato definem a capacidade | Base de pagamento da Caixa, alimentada pelos lotes do MTE ⚠ **FP-D** | Contrato de teleatendimento (dimensionamento) e fiscal | Contrato de teleatendimento define o que o atendente pode consultar | — | Análise do recurso pelo MTE; correção do dado do empregador no eSocial ⚠ **FP-F** | Novo lote semanal MTE → Caixa, se o recurso for deferido |
+| **5. Processos de Suporte** | Lote semanal de pagamento MTE → Caixa (Res. CODEFAT 957/2022, art. 65) | Motor de habilitação MTE/Dataprev cruza eSocial, CNIS e FGTS ⚠ **FP-F** | Contrato de teleatendimento e fiscal do contrato definem a capacidade | Base de pagamento da Caixa, alimentada pelos lotes do MTE ⚠ **FP-D** | Contrato de teleatendimento (dimensionamento) e fiscal | Contrato de teleatendimento define o que o atendente pode consultar | — | Análise do recurso pelo MTE; correção do dado do empregador no eSocial ⚠ **FP-F** | Lotes semanais de pagamento MTE → Caixa (D9) |
+
+## Rastreabilidade: cada elemento e onde ele foi decidido no transcript
+
+| Elemento do blueprint | Onde aparece em `C_grill_transcript.md` |
+|---|---|
+| Etapas E1 a E9, com os nomes usados acima ("Percebe que a parcela não caiu" … "Recebe, desiste ou reclama") | Tabela "Etapas em discussão" e Q5 ("do E1 … ao E9 (recebe, desiste ou reclama)"); decisão D5 |
+| Início no gatilho e tentativa no app (E1, E2) | Q1; D1 |
+| Fim com solução ou encaminhamento satisfatório; laço E8 → E3 | Q2, Q6; D2, D6 |
+| Evidências físicas: extrato/saldo zerado no CAIXA Tem, telas da CTPS Digital e do app Benefícios Sociais, 0800 726 0207, voz e menu da URA, música e mensagem de espera, número de protocolo, orientação "procure o 158 ou o gov.br", tela do recurso no gov.br, crédito na conta ou notificação no app | Q8; D8 |
+| Frontstage: voz da URA, atendente terceirizado, mensagens | Q3, Q4; D3, D4 |
+| Frontstage do E8: gov.br, CTPS Digital, Central 158, SRTE/Sine | Q11; D11 |
+| Backstage: ACD/roteamento da fila, sistema de pagamento da Caixa, registro do protocolo | Q3, Q9; D3, D9 |
+| Suporte: motor de habilitação MTE/Dataprev, bases eSocial/CNIS/FGTS e dado do empregador, lotes semanais MTE → Caixa (Res. CODEFAT 957/2022, art. 65), análise do recurso pelo MTE, contrato de teleatendimento e fiscal | Q4, Q9; D4, D9 |
+| Fail points FP-A a FP-F | Q7; D7 (FP-D e FP-B ajustados em Q13 e Q14; D13, D14) |
+| URA marcada [não confirmado em 2026] | Q10; D10 |
 
 ## As três linhas
 
