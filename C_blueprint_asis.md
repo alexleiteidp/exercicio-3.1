@@ -3,7 +3,7 @@
 **Serviço:** Atendimento ao Seguro-Desemprego pela URA da Caixa (0800 726 0207).
 **Situação retratada:** o trabalhador formal, dispensado sem justa causa, percebe que a parcela não caiu. O retrato é de **como o serviço funciona hoje** (novembro de 2026), não de como deveria funcionar.
 **Metodologia:** Service Blueprint de G. Lynn Shostack (1984), com 5 camadas e 3 linhas.
-**Base:** `B_relatorio_assistente_v3.md` e as decisões D1 a D12 de `C_grill_transcript.md`.
+**Base:** `B_relatorio_assistente_v3.md` e as decisões D1 a D14 de `C_grill_transcript.md`.
 
 ## Decisões do grill que moldam o blueprint
 
@@ -17,6 +17,7 @@
 | D7 | São **6 fail points**, de FP-A a FP-F. |
 | D8 | São **9 evidências físicas**, uma por etapa. |
 | D10 | O que a URA faz sem prova atual aparece marcado **[não confirmado em 2026]**. |
+| D13 / D14 | O "pago" antes do crédito entra como causa do FP-D, sem fail point novo. O FP-B fica marcado como hipótese a testar. |
 | D11 | O frontstage do E8 tem o gov.br, a CTPS Digital, a Central 158 e a SRTE/Sine. |
 
 ## Blueprint (etapas em colunas, camadas em linhas)
@@ -43,9 +44,9 @@
 | # | Fail point | Etapa | Camada | Quem responde | Evidência (v3) |
 |---|---|---|---|---|---|
 | FP-A | A URA informa que o benefício foi negado, mas não explica o motivo | E4 | Frontstage | Caixa (canal) e MTE (decisão) | Mapa 2.1; pesquisa v3; achado do TCU sobre decisões sem motivo claro (Acórdão 1621/2026) |
-| FP-B | O cidadão desiste na fila antes de falar com o atendente | E5 | Ações do cidadão | Caixa, contrato de teleatendimento e fiscal | Hipótese a testar: não há dado público de abandono [NÃO CONFIRMADO] |
+| FP-B | O cidadão desiste na fila antes de falar com o atendente. **Hipótese a testar (D14):** é uma ruptura comum em situações de fricção | E5 | Ações do cidadão | Caixa, contrato de teleatendimento e fiscal | Não há dado público de abandono [NÃO CONFIRMADO]; confirmar por pedido LAI sobre o indicador do contrato |
 | FP-C | O atendente só consulta o pagamento e manda o cidadão para outro canal. A demanda passa sem histórico e sem protocolo ligado a ela | E6 / E7 | Frontstage e backstage | Caixa e MTE | TCU 1621/2026: trabalhador "encaminhado de um lugar para outro" |
-| FP-D | O status do app e o da URA não batem com o crédito real | E2 / E4 | Ações do cidadão e suporte | MTE e Caixa | TCU 1621/2026 (divergência de informação de pagamento); auditoria v1, F17 |
+| FP-D | O status do app e o da URA não batem com o crédito real. **Causa (D13):** a integração com a Caixa pode marcar parcelas como "pagas" antes da efetivação do crédito | E2 / E4 | Ações do cidadão e suporte | MTE e Caixa | Sumário oficial do Acórdão TCU 1.621/2026; auditoria v1, F17 |
 | FP-E | Laço E8 → E3: o encaminhamento não resolve e o cidadão volta a ligar | E8 → E3 | Ações do cidadão | Caixa e MTE | Consequência da decisão D2 do aluno |
 | FP-F | Um dado errado do empregador no eSocial ou no CNIS bloqueia a parcela | E2 / E8 | Processos de suporte | Empregador e MTE/Dataprev | Res. CODEFAT 957/2022, art. 4º, § 1º; TCU 1621/2026 (integração com o eSocial) |
 

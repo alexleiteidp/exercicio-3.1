@@ -190,6 +190,31 @@ O aluno concorda? Ou o fiscal deveria aparecer no backstage, mais perto da opera
 
 ---
 
+## Rodada 7 — Revisão após a v3 final
+
+> Rodada de revisão aberta depois que a v3 trouxe dados novos do sumário oficial do Acórdão TCU 1.621/2026.
+
+**❓ Q13. O "pago" antes do crédito vira fail point próprio?** A v3 achou, no sumário oficial do Acórdão TCU 1.621/2026, que a integração com a Caixa "pode marcar parcelas como 'pagas' antes da efetivação do crédito". As opções são:
+- (a) juntar ao FP-D (status divergente);
+- (b) criar um FP-G próprio, nos Processos de Suporte.
+
+➡️ Recomendação do agente: (a). É a causa do FP-D, e não uma falha nova, e o blueprint continua legível.
+
+**❓ Q14. A desistência na fila (FP-B) fica como fato ou como hipótese?** A pesquisa não encontrou nenhum dado público sobre o abandono da fila do 0800. A auditoria v2 lembrou que a falta de indicador público não prova que a Caixa não meça o abandono. As opções são:
+- (a) manter o FP-B no blueprint, marcado como "hipótese a testar" (pedido pela LAI sobre o indicador do contrato);
+- (b) retirar o FP-B.
+
+➡️ Recomendação do agente: (a). A desistência é uma ruptura típica do canal, e a marcação deixa claro o grau de prova.
+
+**✍️ Resposta do aluno (literal):**
+> q13. o blueprint continua legível porque não se trata de uma falha nova, pois é a causa do fp-d. q14. sim, é necessário manter o fp-b no blueprint, pois a desistência é uma ruptura comum em casos de fricção .
+
+**Decisões:**
+- **D13:** a marcação de "pago" antes do crédito entra como **causa do FP-D**, nos Processos de Suporte. Não vira um fail point novo, para que o blueprint continue legível.
+- **D14:** o FP-B fica no blueprint, marcado como **hipótese a testar**. O motivo do aluno: a desistência é uma ruptura comum em situações de fricção.
+
+---
+
 ## Resumo das decisões
 
 | # | Decisão | Origem | O aluno seguiu a recomendação? |
@@ -206,3 +231,5 @@ O aluno concorda? Ou o fiscal deveria aparecer no backstage, mais perto da opera
 | D10 | URA marcada [não confirmado em 2026] | Q10 | Sim |
 | D11 | Frontstage do E8 com gov.br, CTPS Digital, 158 e SRTE/Sine | Q11 | Sim |
 | D12 | Entendimento confirmado | Q12 | Sim |
+| D13 | "Pago" antes do crédito = causa do FP-D | Q13 | Sim, com justificativa própria |
+| D14 | FP-B mantido como hipótese a testar | Q14 | Sim, com justificativa própria |
