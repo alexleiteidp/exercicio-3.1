@@ -18,7 +18,7 @@
 | D8 | São **9 evidências físicas**, uma por etapa. |
 | D10 | O que a URA faz sem prova atual aparece marcado **[não confirmado em 2026]**. |
 | D13 / D14 | O "pago" antes do crédito entra como causa do FP-D, sem fail point novo. O FP-B fica marcado como hipótese a testar. |
-| D11 | O frontstage do E8 tem o gov.br, a CTPS Digital, a Central 158 e a SRTE/Sine. |
+| D11 | O frontstage do E8 tem o gov.br, a CTPS Digital, a Central 158 e o atendimento presencial na SRTE ou no Sine. |
 
 ## Blueprint (etapas em colunas, camadas em linhas)
 
@@ -42,7 +42,7 @@
 | Fim com solução ou encaminhamento satisfatório; laço E8 → E3 | Q2, Q6; D2, D6 |
 | Evidências físicas: extrato/saldo zerado no CAIXA Tem, telas da CTPS Digital e do app Benefícios Sociais, 0800 726 0207, voz e menu da URA, música e mensagem de espera, número de protocolo, orientação "procure o 158 ou o gov.br", tela do recurso no gov.br, crédito na conta ou notificação no app | Q8; D8 |
 | Frontstage: voz da URA, atendente terceirizado, mensagens | Q3, Q4; D3, D4 |
-| Frontstage do E8: gov.br, CTPS Digital, Central 158, SRTE/Sine | Q11; D11 |
+| Frontstage do E8: gov.br, CTPS Digital, Central 158 e atendimento presencial na SRTE ou no Sine | Q11; D11 |
 | Backstage: ACD/roteamento da fila, sistema de pagamento da Caixa, registro do protocolo | Q3, Q9; D3, D9 |
 | Suporte: motor de habilitação MTE/Dataprev, bases eSocial/CNIS/FGTS e dado do empregador, lotes semanais MTE → Caixa (Res. CODEFAT 957/2022, art. 65), análise do recurso pelo MTE, contrato de teleatendimento e fiscal | Q4, Q9; D4, D9 |
 | Fail points FP-A a FP-F | Q7; D7 (FP-D e FP-B ajustados em Q13 e Q14; D13, D14) |
@@ -63,7 +63,7 @@
 | FP-C | O atendente só consulta o pagamento e manda o cidadão para outro canal. A demanda passa sem histórico e sem protocolo ligado a ela | E6 / E7 | Frontstage e backstage | Caixa e MTE | TCU 1621/2026: trabalhador "encaminhado de um lugar para outro" |
 | FP-D | O status do app e o da URA não batem com o crédito real. **Causa (D13):** a integração com a Caixa pode marcar parcelas como "pagas" antes da efetivação do crédito | E2 / E4 | Ações do cidadão e suporte | MTE e Caixa | Sumário oficial do Acórdão TCU 1.621/2026; auditoria v1, F17 |
 | FP-E | Laço E8 → E3: o encaminhamento não resolve e o cidadão volta a ligar | E8 → E3 | Ações do cidadão | Caixa e MTE | Consequência da decisão D2 do aluno |
-| FP-F | Um dado errado do empregador no eSocial ou no CNIS bloqueia a parcela | E2 / E8 | Processos de suporte | Empregador e MTE/Dataprev | Res. CODEFAT 957/2022, art. 4º, § 1º; TCU 1621/2026 (integração com o eSocial) |
+| FP-F | Um dado errado do empregador no eSocial ou no CNIS bloqueia a parcela | E2 / E8 | Processos de suporte | MTE/Dataprev (bases eSocial/CNIS, com o dado do empregador) | Res. CODEFAT 957/2022, art. 4º, § 1º; TCU 1621/2026 (integração com o eSocial) |
 
 ## Pontos marcados como não confirmados (D10)
 

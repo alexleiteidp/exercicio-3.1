@@ -6,6 +6,16 @@
 > **Contexto entregue ao agente:** `B_relatorio_assistente_v3.md` e a auditoria v1. A pesquisa propunha 9 etapas e cerca de 25 fail points candidatos.
 > **Regra de registro:** as respostas do aluno estão **copiadas literalmente**, inclusive os erros de digitação. Nas Rodadas 4 e 5, o aluno respondeu colando de volta a lista recomendada, o que equivale a aceitá-la. Isso está registrado como tal. Nenhuma resposta foi escrita pelo agente em nome do aluno.
 
+## Síntese das decisões (o detalhe está nas rodadas abaixo)
+
+- **Jornada (D1, D2, D5, D6):** são 9 etapas, de E1 "Percebe que a parcela não caiu" a E9 "Recebe, desiste ou reclama". O início é o gatilho e a tentativa no app. O fim é a solução ou um encaminhamento satisfatório. O laço E8 → E3 é fail point.
+- **Evidências físicas (D8):** E1 extrato ou saldo zerado no CAIXA Tem; E2 tela da CTPS Digital ou do app Benefícios Sociais; E3 número 0800 726 0207; E3/E4 voz e menu gravado da URA; E5 música e mensagem de espera; E6 número de protocolo; E7 orientação "procure o 158 ou o gov.br"; E8 tela do recurso no gov.br; E9 crédito na conta ou notificação no app.
+- **Frontstage (D3, D4, D11):** voz da URA, atendente terceirizado e mensagens. No E8: gov.br, CTPS Digital, Central 158 e atendimento presencial na SRTE ou no Sine.
+- **Backstage (D3, D9):** ACD/roteamento da fila, sistema de pagamento da Caixa (tela do atendente) e registro do protocolo.
+- **Processos de Suporte (D4, D9):** motor de habilitação MTE/Dataprev; bases eSocial, CNIS e FGTS, com o dado do empregador; lotes semanais de pagamento MTE → Caixa; análise do recurso pelo MTE; contrato de teleatendimento e fiscal.
+- **Fail points (D7, D13, D14):** FP-A a FP-F. A causa do FP-D é a marcação de "pago" antes do crédito, e o FP-B é hipótese a testar.
+- **Ressalva (D10):** a leitura de status pela URA fica [não confirmado em 2026].
+
 ## Etapas em discussão (vindas da pesquisa)
 
 | Etapa | Nome |
